@@ -1,8 +1,8 @@
 
 def func(center, left, right, top, bottom):
-    return quarter(center, left, right, top, bottom)
+    return polarCircle(center, left, right, top, bottom)
 
-# This is the equation that is used to actually solve stuff in this situation
+# This is the equation that is used to actually solve the pde in the network
 
 
 #       4 4 4 4  
@@ -144,6 +144,14 @@ def polarCircle(center, left, right, top, bottom):
         bottomVal = bottom.T
     centerVal = center.T
 
-    # I think there is still a problem here. The edges are still too high of a value.
+    """ # I think there is still a problem here. The edges are still too high of a value.
     tmp = (leftVal + rightVal)/0.04 + ((rightVal - leftVal)/0.4)/center.y + ((topVal + bottomVal)/(0.125*3.141)**2)/center.y**2
-    return tmp / ( 2* (center.y**2 * (0.125*3.141)**2 + 0.04) / (center.y**2 * 0.04* 0.125**2 * 3.14**2) )
+    return tmp / ( 2* (center.y**2 * (0.125*3.141)**2 + 0.04) / (center.y**2 * 0.04* 0.125**2 * 3.14**2) ) """
+
+    # Solve the polar laplacian for Tij, and return that value
+    deltheta = 0.125*3.141
+    val1 = (topVal + bottomVal) / 0.04                      # (T+B)/ delr^2
+    val2 = (topVal - bottomVal) / (2 * center.y * 0.2)      # (T-B)/ (2r * delr)
+    val3 = (leftVal + rightVal) / (deltheta**2 * center.y**2)  # (L+R)/ (deltheta^2 * r^2)
+    val4 = 2* (center.y**2 * deltheta**2 + 0.04) / (center.y**2 * deltheta**2 * 0.04)  # (2r^2 deltheta^2 + delr^2) / (r^2 deltheta^2 delr^2)
+    return (val1 + val2 + val3) / val4 
