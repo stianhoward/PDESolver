@@ -141,7 +141,6 @@ def polarCircle(center, left, right, top, bottom):
         bottomVal = bottom.T
     centerVal = center.T
 
-    Trr = (topVal - 2*centerVal + bottomVal)/ 0.04
-    Tr = (topVal - bottomVal) / (2*0.04)
-    Tthetasq = (rightVal - 2*centerVal + leftVal) / ((3.1415*0.125)**2)
-    return centerVal + (Trr + (Tr / center.y) + (Tthetasq / center.y**2))/10000
+    # I think there is still a problem here. The edges are still too high of a value.
+    tmp = (leftVal + rightVal)/0.04 + ((rightVal - leftVal)/0.4)/center.y + ((topVal + bottomVal)/(0.125*3.141)**2)/center.y**2
+    return tmp / ( 2* (center.y**2 * (0.125*3.141)**2 + 0.04) / (center.y**2 * 0.04* 0.125**2 * 3.14**2) )
