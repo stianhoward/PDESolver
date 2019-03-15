@@ -59,9 +59,9 @@ def test(center, left, right, top, bottom):
 # |  13  14  15  16  17  (100)
 # |_______________________
 #    (0) (0) (0) (0) (0)
-#
+#   the 'quarterCircle.csv' network
 
-def quarter(center, left, right, top, bottom):
+def cartesianCircle(center, left, right, top, bottom):
     # Conditions for the edges being None
     # Left
     if left == None:
@@ -119,10 +119,25 @@ def quarter(center, left, right, top, bottom):
     #Randomly multiplying by 0.001 in order to prevent diverging solution...
     return centerVal + (dx + dy) * 0.001
     """
+    # Solve for center point of laplacian
     val1 = (1/0.04) * ( (leftVal/(leftDist*(leftDist+rightDist))) + (rightVal/(rightDist*(leftDist+rightDist))) )
     val2 = (1/0.04) * ( (bottomVal/(bottomDist*(bottomDist+topDist))) + (topVal/(topDist*(topDist + bottomDist))) )
     val3 = ((0.04*leftDist*rightDist) + (0.04*bottomDist*topDist))/(0.04*0.04*leftDist*rightDist*topDist*bottomDist)
     return (val1 + val2)/val3 
+
+
+#                  (pi/2)
+# 0.8|1_____2      /
+#    |       \   / 
+# 0.6|5___ 6   \/3
+#    |      \ /   \
+# 0.4|9_10_11/7\    \
+#    |     /\   \     \4
+# 0.2|a_b /  \ 12\8    |
+#    |  /\c   |   |    |    a=13, b=14, c=15, d=16
+#    |/___|d__|___|____|__________
+#       (0) (0) (0) (0) (0)
+#  The 'polarCircle.csv' network
 
 
 def polarCircle(center, left, right, top, bottom):
