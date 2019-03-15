@@ -8,7 +8,7 @@ from solving import solve
 
 def main():
     # Initialize the data network to be the correct size/ shape
-    nodes = initialize('Book1.csv')
+    nodes = initialize('quarterCircle.csv')
 
     # Run through the actual simulation stuff
     results = solve(nodes, 1.0e-6)

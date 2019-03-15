@@ -9,7 +9,6 @@ def solve(nodes, tol):
     while (madDel > tol) and iterator < 1000:
         newValues = []
         iterator = iterator + 1
-        print(iterator)
 
         # Iterate through the nodes and solve as needed
         for k in range(len(nodes)):
@@ -23,6 +22,7 @@ def solve(nodes, tol):
         for k in range(len(newValues)):
             nodes[k].T = newValues[k]
 
+    print(iterator)
     return nodes
 
 def calcDel(newValues, nodes):
