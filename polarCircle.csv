@@ -1,0 +1,17 @@
+x,y,area,relations
+0.5,0.8,0.04,2,right,5,bottom
+0.375,0.8,0.04,1,left,3,right,6,bottom
+0.25,0.8,0.04,2,left,4,right,7,bottom
+0.125,0.8,0.04,3,left,8,bottom
+0.5,0.6,0.04,6,right,1,top,9,bottom
+0.375,0.6,0.04,5,left,7,right,2,top,10,bottom
+0.25,0.6,0.04,6,left,8,right,3,top,11,bottom
+0.125,0.6,0.04,7,left,4,top,12,bottom
+0.5,0.4,0.04,10,right,5,top,13,bottom
+0.375,0.4,0.04,9,left,11,right,6,top,14,bottom
+0.25,0.4,0.04,10,left,12,right,7,top,15,bottom
+0.125,0.4,0.04,11,left,8,top,16,bottom
+0.5,0.2,0.04,14,right,9,top
+0.375,0.2,0.04,13,left,15,right,10,top
+0.25,0.2,0.04,14,left,16,right,11,top
+0.125,0.2,0.04,15,left,12,top

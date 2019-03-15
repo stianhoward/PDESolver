@@ -1,6 +1,6 @@
 
 def func(center, left, right, top, bottom):
-    return quarter(center, left, right, top, bottom)
+    return polarCircle(center, left, right, top, bottom)
 
 # This is the equation that is used to actually solve stuff in this situation
 
@@ -118,3 +118,30 @@ def quarter(center, left, right, top, bottom):
     dy = ( (bottomVal / (bottomDist * distSum)) - (centerVal / (bottomDist * topDist)) + (topVal / (topDist * distSum)) )
     #Randomly multiplying by 0.001 in order to prevent diverging solution...
     return centerVal + (dx + dy) * 0.001
+
+
+
+
+def polarCircle(center, left, right, top, bottom):
+    if left == None:
+        leftVal = right.T
+    else:
+        leftVal = left.T
+    if right == None:
+        rightVal = 0
+    else:
+        rightVal = right.T
+    if top == None:
+        topVal = 100
+    else:
+        topVal = top.T
+    if bottom == None:
+        bottomVal = 0
+    else:
+        bottomVal = bottom.T
+    centerVal = center.T
+
+    Trr = (topVal - 2*centerVal + bottomVal)/ 0.04
+    Tr = (topVal - bottomVal) / (2*0.04)
+    Tthetasq = (rightVal - 2*centerVal + leftVal) / ((3.1415*0.125)**2)
+    return centerVal + (Trr + (Tr / center.y) + (Tthetasq / center.y**2))/10000
