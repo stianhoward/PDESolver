@@ -6,7 +6,7 @@ def solve(nodes, tol):
     # initialize madDel as greater than the tolerance
     madDel = tol + 1
     iterator = 0
-    while (madDel > tol) and iterator < 1000:
+    while (madDel > tol) and iterator < 10000:
         newValues = []
         iterator = iterator + 1
 
