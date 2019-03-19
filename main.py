@@ -10,7 +10,7 @@ from solving import solve
 
 # Polar solution: Change func() in function.py to call polarCircle()
 networkfile = 'networks/polarCircle.csv'
-# Cartesian solution: Change func() in function.py to call cartesianCircle()
+# Cartesian solution: Change func() in function.py to call quarterCircle()
 #networkfile = 'networks/cartesianCircle.csv'
 
 
