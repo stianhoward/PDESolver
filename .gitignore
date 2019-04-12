@@ -1,2 +1,5 @@
+# Random extra file
+*.vscode
+
 # Byte-compiled
 __pycache__
